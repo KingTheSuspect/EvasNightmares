@@ -178,7 +178,9 @@ public class Movement : MonoBehaviour
 
         if (horizontal != 0)
         {
+
             whimsu.isRandomMoving = false;
+
         }
 
         else
@@ -228,6 +230,7 @@ public class Movement : MonoBehaviour
         {
 
             rotate();
+
             if (GameObject.Find("Camera").GetComponent<CameraFollow>().isFollowingCharachter)
                 GameObject.Find("Camera").GetComponent<CameraFollow>().isFollowingOffset.x = 1;
 
@@ -315,7 +318,5 @@ public class Movement : MonoBehaviour
             cantJump = true;
 
     }
-
-
 
 }
