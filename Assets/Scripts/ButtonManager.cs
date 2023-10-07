@@ -9,19 +9,20 @@ public class ButtonManager : MonoBehaviour
     public GameObject main;
     public GameObject settings;
     public GameObject credits;
+    public GameObject tapToBeginsObject;
 
     public void Start()
     {
 
         hideAll();
 
-        main.SetActive(true);
+        tapToBeginsObject.SetActive(true);
 
     }
     public void StartTheGame()
     {
 
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
 
     }
 
