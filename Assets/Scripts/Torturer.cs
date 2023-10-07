@@ -44,7 +44,6 @@ public class Torturer : MonoBehaviour
         {
             attackTimer += Time.deltaTime;
             time = 0;
-            print("atak");
         }
 
         else

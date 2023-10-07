@@ -17,7 +17,14 @@ public class EnemyHealthSystem : MonoBehaviour
     private void Start()
     {
 
-        gg = GameObject.FindGameObjectWithTag("GateGuardian").GetComponent<GateGuardian>();
+        try
+        {
+
+            gg = GameObject.FindGameObjectWithTag("GateGuardian").GetComponent<GateGuardian>();
+
+        }
+
+        catch{}
 
     }
 

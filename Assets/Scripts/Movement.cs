@@ -75,11 +75,7 @@ public class Movement : MonoBehaviour
             particleSystemm.Stop();
         }
 
-
-
-
         anim.SetBool("HatModeAnim", hatModeForAnim);
-
 
         if (GameObject.Find("whimsy").GetComponent<whimsyfallow>().hatmode && !isdead)
         {
@@ -209,54 +205,53 @@ public class Movement : MonoBehaviour
 
         anim.SetFloat("speed", Mathf.Abs(horizontal));
 
+        horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (!cantMove) {
-
-            horizontal = Input.GetAxisRaw("Horizontal");
+        if (!cantMove)
+        {
 
             rb.velocity = new Vector2(horizontal * Time.deltaTime * speed, rb.velocity.y);
 
-            if (horizontal < 0 && rtoate == false)
-            {
-                if (GameObject.Find("Camera").GetComponent<CameraFollow>().isFollowingCharachter)
-                    GameObject.Find("Camera").GetComponent<CameraFollow>().isFollowingOffset.x = -1;
+        }
 
-                rotate();
+        if (horizontal < 0 && rtoate == false)
+        {
 
-            }
+            if (GameObject.Find("Camera").GetComponent<CameraFollow>().isFollowingCharachter)
+                GameObject.Find("Camera").GetComponent<CameraFollow>().isFollowingOffset.x = -1;
 
-            else if (horizontal > 0 && rtoate == true)
-            {
+            rotate();
 
-                rotate();
-                if (GameObject.Find("Camera").GetComponent<CameraFollow>().isFollowingCharachter)
-                    GameObject.Find("Camera").GetComponent<CameraFollow>().isFollowingOffset.x = 1;
+        }
 
-            }
+        else if (horizontal > 0 && rtoate == true)
+        {
 
-            
+            rotate();
+            if (GameObject.Find("Camera").GetComponent<CameraFollow>().isFollowingCharachter)
+                GameObject.Find("Camera").GetComponent<CameraFollow>().isFollowingOffset.x = 1;
 
         }
 
     }
 
-        void rotate()
+    void rotate()
+    {
+        rtoate = !rtoate;
+        scale = gameObject.transform.localScale;
+        scale.x = scale.x * -1;
+        gameObject.transform.localScale = scale;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.transform.CompareTag("Ground"))
         {
-            rtoate = !rtoate;
-            scale = gameObject.transform.localScale;
-            scale.x = scale.x * -1;
-            gameObject.transform.localScale = scale;
-        }
 
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
+            IsJumping = false;
 
-            if (collision.transform.CompareTag("Ground"))
-            {
-
-                IsJumping = false;
-
-                isGrounded = true;
+            isGrounded = true;
 
             cantMove = false;
 
@@ -266,28 +261,43 @@ public class Movement : MonoBehaviour
 
         }
 
-            if (collision.transform.CompareTag("wall") && !isGrounded)
-            {
+        if (collision.transform.CompareTag("wall") && !isGrounded)
+        {
 
-                wallJumping = true;
+            wallJumping = true;
 
-        }
+            cantMove = false;
 
-        }
-
-        private void OnCollisionExit2D(Collision2D collision) {
-
-            if (collision.transform.CompareTag("Ground")) {
-
-                StartCoroutine(GroundExit());
-
-                isGrounded = false;
-
-            }
+            cantJump = false;
 
         }
 
-        private IEnumerator GroundExit() {
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+
+        if (collision.transform.CompareTag("Ground"))
+        {
+
+            StartCoroutine(GroundExit());
+
+            isGrounded = false;
+
+        }
+
+        if (collision.transform.CompareTag("wall"))
+        {
+
+            StartCoroutine(WallExit());
+
+            isGrounded = false;
+
+        }
+
+    }
+
+    private IEnumerator GroundExit() {
 
             yield return new WaitForSeconds(0.1f);
 
@@ -296,6 +306,16 @@ public class Movement : MonoBehaviour
 
         }
 
-    
+    private IEnumerator WallExit()
+    {
+
+        yield return new WaitForSeconds(0.1f);
+
+        if (!wallJumping)
+            cantJump = true;
+
+    }
+
+
 
 }

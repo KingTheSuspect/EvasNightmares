@@ -29,7 +29,6 @@ public class ConsumedSoul : MonoBehaviour
 
     void Update()
     {
-        print(isAttacking);
         float step = moveSpeed * Time.deltaTime;
         float distance = Vector2.Distance(this.transform.position, playerTransform.position);
 
