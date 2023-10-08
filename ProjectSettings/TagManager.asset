@@ -14,6 +14,7 @@ TagManager:
   - GateGuardian
   - PowerSphere
   - wall
+  - Crate
   layers:
   - Default
   - TransparentFX
