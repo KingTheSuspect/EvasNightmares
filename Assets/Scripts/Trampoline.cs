@@ -5,7 +5,7 @@ using UnityEngine;
 public class Trampoline : MonoBehaviour
 {
 
-    public float force;
+    [SerializeField] private float force;
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -14,8 +14,6 @@ public class Trampoline : MonoBehaviour
         {
 
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x, force);
-
-            //collision.gameObject.GetComponent<Movement>().IsJumping = false;
 
         }
 
