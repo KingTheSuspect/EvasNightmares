@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -0.0002, y: 0.000030518}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &120802399
@@ -314,6 +314,12 @@ MonoBehaviour:
   settings: {fileID: 1355654796}
   credits: {fileID: 1837196074}
   tapToBeginsObject: {fileID: 189074488}
+  ls:
+  - {fileID: 1919802623}
+  - {fileID: 794826070}
+  - {fileID: 1384353254}
+  languageTr: 0
+  languageEn: 0
 --- !u!4 &136472432
 Transform:
   m_ObjectHideFlags: 0
@@ -1044,8 +1050,9 @@ GameObject:
   - component: {fileID: 794826067}
   - component: {fileID: 794826069}
   - component: {fileID: 794826068}
+  - component: {fileID: 794826070}
   m_Layer: 5
-  m_Name: Start
+  m_Name: sta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1112,6 +1119,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794826066}
   m_CullTransparentMesh: 1
+--- !u!114 &794826070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794826066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dc3d6a52caa544c9e8f7959ee23f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  En: Start
+  Tr: Basla
+  textt: 
+  textte: {fileID: 794826068}
 --- !u!1 &810291905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &909318029
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2001,7 +2024,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1355152500}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 136472431}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: TrLanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1355152500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2055,7 +2090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1355654797
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2087,8 +2122,9 @@ GameObject:
   - component: {fileID: 1384353251}
   - component: {fileID: 1384353253}
   - component: {fileID: 1384353252}
+  - component: {fileID: 1384353254}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: qit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2155,6 +2191,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384353250}
   m_CullTransparentMesh: 1
+--- !u!114 &1384353254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384353250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dc3d6a52caa544c9e8f7959ee23f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  En: Exit
+  Tr: "\xC7iki\u015F"
+  textt: 
+  textte: {fileID: 1384353252}
 --- !u!1 &1390313676
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,8 +2414,9 @@ GameObject:
   - component: {fileID: 1640133058}
   - component: {fileID: 1640133060}
   - component: {fileID: 1640133059}
+  - component: {fileID: 1640133061}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: bck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2430,6 +2483,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640133057}
   m_CullTransparentMesh: 1
+--- !u!114 &1640133061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640133057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dc3d6a52caa544c9e8f7959ee23f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  En: Back
+  Tr: Geri
+  textt: 
+  textte: {fileID: 0}
 --- !u!1 &1683136638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,7 +2681,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1765398843}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 136472431}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: EnLanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1765398843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3235,8 +3316,9 @@ GameObject:
   - component: {fileID: 1919802620}
   - component: {fileID: 1919802622}
   - component: {fileID: 1919802621}
+  - component: {fileID: 1919802623}
   m_Layer: 5
-  m_Name: Credits
+  m_Name: cre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3303,6 +3385,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919802619}
   m_CullTransparentMesh: 1
+--- !u!114 &1919802623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919802619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dc3d6a52caa544c9e8f7959ee23f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  En: Credits
+  Tr: Yapimcilar
+  textt: 
+  textte: {fileID: 1919802621}
 --- !u!1 &1963553718
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,12 +10,13 @@ public class ButtonManager : MonoBehaviour
     public GameObject settings;
     public GameObject credits;
     public GameObject tapToBeginsObject;
-
+    public LanguageSettings[] ls;
+    public bool languageTr, languageEn;
     public void Start()
     {
 
         hideAll();
-
+        languageEn = true;
         tapToBeginsObject.SetActive(true);
 
     }
@@ -55,6 +56,18 @@ public class ButtonManager : MonoBehaviour
 
         Application.Quit();
 
+    }
+
+    public void TrLanguage()
+    {
+        languageTr = true;
+        languageEn = false;
+    }
+
+    public void EnLanguage()
+    {
+        languageTr = false;
+        languageEn = true;
     }
     void hideAll()
     {
