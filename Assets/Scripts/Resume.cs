@@ -5,7 +5,7 @@ using UnityEngine;
 public class Resume : MonoBehaviour
 {
 
-    public GameManager gm;
+    [SerializeField]private GameManager gm;
 
     public void Rsm()
     {
