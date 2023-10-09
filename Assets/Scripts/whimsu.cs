@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class whimsu : MonoBehaviour
 {
-    public Transform player;
-    public float followDistance = 2f;
+    private Transform player;
+    private float followDistance = 2f;
+    [SerializeField] private float startFollowDistance, startMinFollowDistance;
     public float randomMoveRadius = 1f;
     public float orbitSpeed = 2f;
     public static bool isRandomMoving;
@@ -18,7 +19,10 @@ public class whimsu : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("eva").transform;
+
+        startFollowDistance = followDistance;
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
         initialOffset = transform.position - player.position;
         randomTargetPosition = GetRandomPositionNearPlayer();
@@ -31,13 +35,13 @@ public class whimsu : MonoBehaviour
         if (isRandomMoving)
         {
             RandomMove();
-            followDistance = 20;
+            followDistance = startFollowDistance;
             
         }
         else
         {
             FollowPlayer();
-            followDistance = 5;
+            followDistance = startMinFollowDistance;
 
         }
     }
