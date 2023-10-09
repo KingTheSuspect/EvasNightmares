@@ -14,7 +14,7 @@ public class MenuStarter : MonoBehaviour
     {
         if(!didmenuwasstarted && Input.GetMouseButtonDown(0))
         {
-            anims.SetTrigger("begin");
+            //anims.SetTrigger("begin");
             didmenuwasstarted = true;
         }
 
