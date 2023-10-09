@@ -8,6 +8,7 @@ public class Button : MonoBehaviour
     public float electricity = 0, electric = 0;
     public bool doit = false, characther = false, crate = false;
     public float timer = 0, speed = 1;
+    public Sprite on, off;
 
     private void Update()
     {
@@ -58,9 +59,11 @@ public class Button : MonoBehaviour
 
             doit = true;
 
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = on;
+
         }
 
-        if (collision.gameObject.tag == "Ground" && !characther)
+        else if (collision.gameObject.tag == "Ground" && !characther)
         {
 
             electricity = 100;
@@ -68,6 +71,8 @@ public class Button : MonoBehaviour
             crate = true;
 
             doit = true;
+
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = on;
 
         }
 
@@ -85,9 +90,11 @@ public class Button : MonoBehaviour
 
             doit = true;
 
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = off;
+
         }
 
-        if (collision.gameObject.tag == "Ground" && !characther)
+        else if (collision.gameObject.tag == "Ground" && !characther)
         {
 
             electricity = 0;
@@ -95,6 +102,8 @@ public class Button : MonoBehaviour
             crate = false;
 
             doit = true;
+
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = off;
 
         }
 
