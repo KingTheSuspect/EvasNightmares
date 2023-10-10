@@ -14,7 +14,7 @@ public class FadeEffect : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            LoadNextLevel();
+            //LoadNextLevel();
         }
 
     }
