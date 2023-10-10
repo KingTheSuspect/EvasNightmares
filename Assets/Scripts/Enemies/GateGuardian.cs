@@ -3,38 +3,21 @@ using System.Collections;
 
 public class GateGuardian : MonoBehaviour
 {
-    public GameObject powerSpherePrefab;
-    public Transform[] sphereSpawnPoints;
-    public float chainDistance = 5f;
-    public float chainSpeed = 10f;
-    public float distanceToPlayer = 2f;
+    [SerializeField] private GameObject powerSpherePrefab, chainPrefab;
+    [SerializeField] private Transform[] sphereSpawnPoints;
+    [SerializeField] private float chainDistance = 5f, chainSpeed = 10f, distanceToPlayer = 2f, chainAnimationDuration = 1f,
+        attackCD = 3f, chainSwingTime, timer = 0;
+    [SerializeField] private int chainDamage = 10, axeDamage = 50, lifeSteal = 10, remainingSphereCount;
+    [SerializeField] private Transform chainSpawnPoint, playerTransform;
+    [SerializeField] private bool stop = false, canThrowChain = true;
+
+    public bool vulnerableToDamage = false, chainCaught = false;
     public float chainToPlayerTime = 2f;
-    public int chainDamage = 10;
-    public float chainAnimationDuration = 1f;
-    public GameObject chainPrefab;
-    public Transform chainSpawnPoint;
-    public Transform playerTransform;
-
-    public int axeDamage = 50;
-
-    public int lifeSteal = 10;
-    public float attackCD = 3f;
-
-    private int remainingSphereCount;
-    public bool vulnerableToDamage = false;
-    private bool canThrowChain = true;
-    public bool chainCaught = false;
-    private float chainSwingTime;
-    private Transform evaTransform;
-    public float timer = 0;
-    public bool stop = false;
 
     void Start()
     {
 
         remainingSphereCount = sphereSpawnPoints.Length;
-
-        evaTransform = GameObject.Find("eva").transform;
 
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -87,7 +70,7 @@ public class GateGuardian : MonoBehaviour
 
         GameObject chain = Instantiate(chainPrefab, chainSpawnPoint.position, Quaternion.identity);
         Rigidbody2D chainRigidbody = chain.GetComponent<Rigidbody2D>();
-        Vector2 chainDirection = (evaTransform.position - transform.position).normalized;
+        Vector2 chainDirection = (playerTransform.position - transform.position).normalized;
         chainRigidbody.velocity = chainDirection * chainSpeed;
 
         canThrowChain = true;
@@ -97,7 +80,7 @@ public class GateGuardian : MonoBehaviour
     void InflictChainDamageToPlayer()
     {
 
-        evaTransform.gameObject.GetComponent<healtsystem>().GetDamage(chainDamage);
+        playerTransform.gameObject.GetComponent<healtsystem>().GetDamage(chainDamage);
 
         if(this.gameObject.GetComponent<EnemyHealthSystem>().health <= 100)
             this.gameObject.GetComponent<EnemyHealthSystem>().health += lifeSteal;

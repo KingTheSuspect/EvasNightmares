@@ -5,16 +5,16 @@ using UnityEngine;
 public class Chain : MonoBehaviour
 {
 
-    public GateGuardian gg;
-    public float timer = 0f;
-    private Transform evaTransform;
+    [SerializeField] private GateGuardian gg;
+    [SerializeField] private float timer = 0f;
+    [SerializeField] private Transform evaTransform;
 
     void Start()
     {
 
         gg = GameObject.FindGameObjectWithTag("GateGuardian").GetComponent<GateGuardian>();
 
-        evaTransform = GameObject.Find("eva").transform;
+        evaTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
     }
 

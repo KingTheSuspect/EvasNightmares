@@ -5,26 +5,15 @@ using UnityEngine;
 public class GolgeZanaatkar : MonoBehaviour
 {
 
-    public float speed = 3f;
-    public bool right = true;
-    public Vector2 Scale;
-    public Transform point1, point2;
-    public bool done = false;
-    public bool stopcompletely = false;
+    [SerializeField] private float speed = 3f, cloningDistance = 6f, waitformax = 5f, waitformin = 1f, attackDistance = 2f;
+    [SerializeField] private bool stop = false, stop1 = false, attack = false, startCloning = false, stopcompletely = false, done = false, right = true;
+    [SerializeField] private Transform point1, point2;
+
     private Transform playerTransform;
 
-    public bool startCloning = false;
-    public float cloningDistance = 6f;
-    public int damage = 10;
-    public bool attack = false;
-    public float attackDistance = 2f;
-
-    public bool stop = false;
-    public bool stop1 = false;
-    public float waitformax = 5f, waitformin = 1f;
-    public Vector2 target;
-
-    public GameObject Klon;
+    [SerializeField] private int damage = 10;
+    [SerializeField] private Vector2 target, Scale;
+    [SerializeField] private GameObject Klon;
 
     private void Start()
     {
@@ -185,7 +174,7 @@ public class GolgeZanaatkar : MonoBehaviour
         if (distance <= attackDistance)
         {
 
-            GameObject.Find("eva").GetComponent<healtsystem>().GetDamage(damage);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<healtsystem>().GetDamage(damage);
 
         }
 
@@ -194,7 +183,7 @@ public class GolgeZanaatkar : MonoBehaviour
         if (distance <= attackDistance)
         {
 
-            GameObject.Find("eva").GetComponent<healtsystem>().GetDamage(damage);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<healtsystem>().GetDamage(damage);
 
         }
         
@@ -203,7 +192,7 @@ public class GolgeZanaatkar : MonoBehaviour
         if (distance <= attackDistance)
         {
 
-            GameObject.Find("eva").GetComponent<healtsystem>().GetDamage(damage);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<healtsystem>().GetDamage(damage);
 
         }
 

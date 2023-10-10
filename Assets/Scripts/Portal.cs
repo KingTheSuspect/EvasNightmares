@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class Portal : MonoBehaviour
 {
 
-    [SerializeField] public bool useNumber = false;
-    [SerializeField] public int number;
+    [SerializeField] private bool useNumber = false;
+    [SerializeField] private int number;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

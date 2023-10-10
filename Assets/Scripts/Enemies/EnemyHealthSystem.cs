@@ -6,9 +6,9 @@ public class EnemyHealthSystem : MonoBehaviour
 {
 
     public int health = 100;
-    public int getDamageFromEva = 100;
-    public int getDamageFromEvaWithWhimsy = 100;
-    public int getDamageFromWhimsy = 100;
+    [SerializeField] private int getDamageFromEva = 100;
+    [SerializeField] private int getDamageFromEvaWithWhimsy = 100;
+    [SerializeField] private int getDamageFromWhimsy = 100;
 
     public GateGuardian gg;
 

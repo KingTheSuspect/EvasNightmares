@@ -14,8 +14,6 @@ public class healtsystem : MonoBehaviour
     public Slider slider;
     public Image sliderFill;
 
-    public static healtsystem Instance;
-
     private Color minColor = Color.green;
     private Color maxColor = Color.red;
 

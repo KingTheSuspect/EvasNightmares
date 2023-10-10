@@ -5,27 +5,27 @@ using UnityEngine;
 public class AzapKurdu : MonoBehaviour
 {
 
-    public bool isSeeing = false;
-    public float speed = 3f;
-    public bool right = true;
-    public Vector2 Scale;
-    public Transform point1, point2;
-    public bool done = false;
-    public bool stopcompletely = false;
-    public float animtime = 1f;
-    private Transform playerTransform;
+    [SerializeField] private bool isSeeing = false;
+    [SerializeField] private float speed = 3f;
+    [SerializeField] private bool right = true;
+    [SerializeField] private Vector2 Scale;
+    [SerializeField] private Transform point1, point2;
+    [SerializeField] private bool done = false;
+    [SerializeField] private bool stopcompletely = false;
+    [SerializeField] private float animtime = 1f;
+    [SerializeField] private Transform playerTransform;
 
-    public float maxDistance = 8f;
-    public bool isFollowing = false;
-    public float attackDistance = 1f;
-    public float followDistance = 5f;
-    public int damage = 10;
-    public int lifeSteal = 10;
+    [SerializeField] private float maxDistance = 8f;
+    [SerializeField] private bool isFollowing = false;
+    [SerializeField] private float attackDistance = 1f;
+    [SerializeField] private float followDistance = 5f;
+    [SerializeField] private int damage = 10;
+    [SerializeField] private int lifeSteal = 10;
 
-    public bool stop = false;
-    public bool stop1 = false;
-    public float waitformax = 5f, waitformin = 1f;
-    public Vector2 target;
+    [SerializeField] private bool stop = false;
+    [SerializeField] private bool stop1 = false;
+    [SerializeField] private float waitformax = 5f, waitformin = 1f;
+    [SerializeField] private Vector2 target;
 
     public GameObject[] friendInNeed;
 
@@ -178,7 +178,7 @@ public class AzapKurdu : MonoBehaviour
         if (distance <= attackDistance)
         {
 
-            GameObject.Find("eva").GetComponent<healtsystem>().GetDamage(damage);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<healtsystem>().GetDamage(damage);
 
             this.gameObject.GetComponent<EnemyHealthSystem>().health += lifeSteal;
 

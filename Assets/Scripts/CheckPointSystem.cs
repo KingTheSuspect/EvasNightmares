@@ -8,7 +8,7 @@ public class CheckPointSystem : MonoBehaviour
     public void CheckPoint()
     {
 
-        GameObject.Find("eva").GetComponent<Movement>().checkPoint = this.transform.position;
+        GameObject.FindGameObjectWithTag("eva").GetComponent<Movement>().checkPoint = this.transform.position;
 
         Destroy(this.gameObject.transform.parent.gameObject);
 

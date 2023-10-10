@@ -5,13 +5,11 @@ using UnityEngine;
 public class Klonlar : MonoBehaviour
 {
 
-    public float speed = 3f, dashSpeed = 10f, jumpForce = 10f;
-    private Transform playerTransform;
-    public Vector2 Scale;
-    public int damage;
-    public int attackDistance = 1;
-    public float attackRate = 1.5f;
-    public bool stop = false;
+    [SerializeField] private float speed = 3f, dashSpeed = 10f, jumpForce = 10f, attackRate = 1.5f;
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private Vector2 Scale;
+    [SerializeField] private int damage, attackDistance = 1;
+    [SerializeField] private bool stop = false;
 
     void Start()
     {

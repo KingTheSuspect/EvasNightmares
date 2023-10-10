@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 1784889953759406661}
   - component: {fileID: 1784889953759406662}
   m_Layer: 0
-  m_Name: torturer
+  m_Name: Torturer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

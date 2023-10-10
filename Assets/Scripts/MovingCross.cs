@@ -5,29 +5,23 @@ using UnityEngine;
 public class MovingCross : MonoBehaviour
 {
 
-    public bool cross = false;
+    [SerializeField] private bool cross = false;
 
-    public int rotationSpeed = 5;
+    [SerializeField] private int rotationSpeed = 5;
 
     [SerializeField] private Transform up, down, left, right;
 
-    public int rotationDirection;
+    [SerializeField] private Vector3 rotationDirection;
 
     [SerializeField] private float maxRotation;
-
-    private float multiplier = 0, zDir;
 
     void Update()
     {
 
-        multiplier = this.gameObject.transform.localRotation.eulerAngles.z + (rotationDirection * rotationSpeed * Time.deltaTime);
-
         if (cross)
         {
 
-            //this.gameObject.transform.Rotate(rotationSpeed * rotationDirection * Time.deltaTime);
-
-            this.gameObject.transform.localRotation = Quaternion.Euler(0, 0, multiplier);
+            this.gameObject.transform.Rotate(rotationSpeed * rotationDirection);
 
         }
 

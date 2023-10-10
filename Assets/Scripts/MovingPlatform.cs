@@ -5,10 +5,10 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour
 {
 
-    public Transform point1, point2;
-    public float speed = 3;
+    [SerializeField] private Transform point1, point2;
+    [SerializeField] private float speed = 3;
     [SerializeField] private bool vertical;
-    public Vector3 targetPos;
+    private Vector3 targetPos;
 
     private void Start()
     {
