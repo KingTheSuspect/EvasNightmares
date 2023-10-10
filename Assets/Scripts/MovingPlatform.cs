@@ -7,6 +7,7 @@ public class MovingPlatform : MonoBehaviour
 
     public Transform point1, point2;
     public float speed = 3;
+    [SerializeField] private bool vertical;
     public Vector3 targetPos;
 
     private void Start()
@@ -19,11 +20,26 @@ public class MovingPlatform : MonoBehaviour
     void Update()
     {
 
-        if (this.transform.position.x <= point1.position.x)
-            targetPos = point2.position;
+        if (!vertical) { 
 
-        else if (this.transform.position.x >= point2.position.x)
-            targetPos = point1.position;
+            if (this.transform.position.x <= point1.position.x)
+                targetPos = point2.position;
+
+            else if (this.transform.position.x >= point2.position.x)
+                targetPos = point1.position;
+
+        }
+
+        else if (vertical)
+        {
+
+            if (this.transform.position.y <= point2.position.y)
+                targetPos = point1.position;
+
+            else if (this.transform.position.y >= point1.position.y)
+                targetPos = point2.position;
+
+        }
 
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 

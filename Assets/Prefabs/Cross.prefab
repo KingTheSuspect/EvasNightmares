@@ -104,7 +104,8 @@ MonoBehaviour:
   down: {fileID: 7797447631644903767}
   left: {fileID: 6027890859468158828}
   right: {fileID: 2436665197291409382}
-  rotationDirection: {x: 0, y: 0, z: 0}
+  rotationDirection: 0
+  maxRotation: 0
 --- !u!61 &203346453982490585
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -407,7 +408,8 @@ MonoBehaviour:
   down: {fileID: 7797447631644903767}
   left: {fileID: 6027890859468158828}
   right: {fileID: 2436665197291409382}
-  rotationDirection: {x: 0, y: 0, z: 0}
+  rotationDirection: 0
+  maxRotation: 0
 --- !u!61 &8042862484844123141
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -557,7 +559,8 @@ MonoBehaviour:
   down: {fileID: 7797447631644903767}
   left: {fileID: 6027890859468158828}
   right: {fileID: 2436665197291409382}
-  rotationDirection: {x: 0, y: 0, z: 0}
+  rotationDirection: 0
+  maxRotation: 0
 --- !u!61 &685759205237069561
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -736,12 +739,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cross: 1
-  rotationSpeed: 20
+  rotationSpeed: 40
   up: {fileID: 0}
   down: {fileID: 0}
   left: {fileID: 0}
   right: {fileID: 0}
-  rotationDirection: {x: 0, y: 0, z: -1}
+  rotationDirection: 1
+  maxRotation: 0
 --- !u!1 &6774142663132613550
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +912,8 @@ MonoBehaviour:
   down: {fileID: 7797447631644903767}
   left: {fileID: 6027890859468158828}
   right: {fileID: 2436665197291409382}
-  rotationDirection: {x: 0, y: 0, z: 0}
+  rotationDirection: 0
+  maxRotation: 0
 --- !u!61 &7581869590116873378
 BoxCollider2D:
   m_ObjectHideFlags: 0

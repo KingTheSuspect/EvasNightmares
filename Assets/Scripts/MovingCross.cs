@@ -9,29 +9,25 @@ public class MovingCross : MonoBehaviour
 
     public int rotationSpeed = 5;
 
-    public Transform up, down, left, right;
+    [SerializeField] private Transform up, down, left, right;
 
-    public Vector3 rotationDirection;
+    public int rotationDirection;
 
-    private void Start()
-    {
+    [SerializeField] private float maxRotation;
 
-        if (cross)
-        {
-
-
-
-        }
-
-    }
+    private float multiplier = 0, zDir;
 
     void Update()
     {
 
+        multiplier = this.gameObject.transform.localRotation.eulerAngles.z + (rotationDirection * rotationSpeed * Time.deltaTime);
+
         if (cross)
         {
 
-            this.gameObject.transform.Rotate(rotationSpeed * rotationDirection * Time.deltaTime);
+            //this.gameObject.transform.Rotate(rotationSpeed * rotationDirection * Time.deltaTime);
+
+            this.gameObject.transform.localRotation = Quaternion.Euler(0, 0, multiplier);
 
         }
 
