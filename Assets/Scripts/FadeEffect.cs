@@ -8,7 +8,7 @@ public class FadeEffect : MonoBehaviour
 {
     [SerializeField] private Animator anims;
 
-    public float transitionTime = 1f;
+    [SerializeField] private float transitionTime = 1f;
 
     private void Update()
     {

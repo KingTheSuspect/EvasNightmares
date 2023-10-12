@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;
-    public Vector3 offset;
-    public float smoothTime = 0.3f;
-    public Camera cam;
+    [SerializeField] private Transform target;
+    [SerializeField] private Vector3 offset;
+    [SerializeField] private float smoothTime = 0.3f;
+    [SerializeField] private Camera cam;
     private Vector3 velocity;
-    public bool isFollowingCharachter ;
-    public Vector3 manuelOffset,isFollowingOffset;
-    public float targetSizeisFollowing,targetSize;
-    public float zoomSpeed;
+    public bool isFollowingCharachter;
+    public Vector3 manuelOffset, isFollowingOffset;
+    [SerializeField] private float targetSizeisFollowing,targetSize;
+    [SerializeField] private float zoomSpeed;
 
 
     private void Start()

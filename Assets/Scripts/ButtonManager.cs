@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
 
-    public GameObject main;
-    public GameObject settings;
-    public GameObject credits;
+    [SerializeField] private GameObject settings;
+    [SerializeField] private GameObject credits;
     public void Start()
     {
 
@@ -27,7 +26,6 @@ public class ButtonManager : MonoBehaviour
 
         hideAll();
 
-        main.SetActive(true);
 
     }
     public void SettingsMenu()
