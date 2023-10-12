@@ -9,16 +9,16 @@ public class whimsyfallow : MonoBehaviour
 {
     public static whimsyfallow Instance;
     public static float takipHizi = 5f;
-    public string enemyTag = "Enemy";
-    public Transform enemy;
-    public bool takipEtmeyeDevamEt;
-    public Transform hedefNesne;
-    public float cooldowntimer;
-    public float cooldown;
+    [SerializeField] private string enemyTag = "Enemy";
+    [SerializeField] private Transform enemy;
+    [SerializeField] private bool takipEtmeyeDevamEt;
+    [SerializeField] private Transform hedefNesne;
+    [SerializeField] private float cooldowntimer;
+    [SerializeField] private float cooldown;
     public bool hatmode;
-    public Transform hatPosition;
-    public BoxCollider2D col;
-    public bool thereIsNoEnemy;
+    [SerializeField] private Transform hatPosition;
+    [SerializeField] private BoxCollider2D col;
+    [SerializeField] private bool thereIsNoEnemy;
     public bool hat;
     public int baseDamage = 0;
 
