@@ -9,14 +9,10 @@ public class ButtonManager : MonoBehaviour
     public GameObject main;
     public GameObject settings;
     public GameObject credits;
-    public LanguageSettings[] ls;
-    public bool languageTr, languageEn;
     public void Start()
     {
 
         hideAll();
-        languageEn = true;
-        main.SetActive(true);
 
     }
     public void StartTheGame()
@@ -57,21 +53,10 @@ public class ButtonManager : MonoBehaviour
 
     }
 
-    public void TrLanguage()
-    {
-        languageTr = true;
-        languageEn = false;
-    }
-
-    public void EnLanguage()
-    {
-        languageTr = false;
-        languageEn = true;
-    }
+   
     void hideAll()
     {
 
-        main.SetActive(false);
         settings.SetActive(false);
         credits.SetActive(false);
 

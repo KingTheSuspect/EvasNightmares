@@ -2,36 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
 
 
 public class LanguageSettings : MonoBehaviour
 {
-    public string En;
-    public string Tr;
-    public string textt;
-    public Text textte;
-    void Start()
+    private bool active = false;
+
+    public void ChangeLocale(int localID)
     {
-        textte = GetComponent<Text>();
+        if (active == true)
+            return;
+        StartCoroutine(SetLocale(localID));
     }
 
 
-    void Update()
+    IEnumerator SetLocale(int _localID)
     {
-
-        textte.text = textt;
-
-        if (GameObject.Find("ButtonManager").GetComponent<ButtonManager>().languageEn)
-        {
-            textt = En;
-
-        }
-
-        if (GameObject.Find("ButtonManager").GetComponent<ButtonManager>().languageTr)
-        {
-            textt = Tr;
-
-           
-        }
+        active = true;
+        yield return LocalizationSettings.InitializationOperation;
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_localID];
+        active = false;
     }
 }
