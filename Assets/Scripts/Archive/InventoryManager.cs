@@ -125,11 +125,11 @@ public class InventoryManager : MonoBehaviour
     IEnumerator beInvicible(int waitTime)
     {
 
-        eva.GetComponent<Movement>().invicible = true;
+        eva.GetComponent<PlayerController>().invicible = true;
 
         yield return new WaitForSeconds(waitTime);
 
-        eva.GetComponent<Movement>().invicible = false;
+        eva.GetComponent<PlayerController>().invicible = false;
 
     }
 

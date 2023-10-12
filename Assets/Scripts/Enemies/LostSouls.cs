@@ -52,9 +52,9 @@ public class LostSouls : MonoBehaviour
 
             if (attackingNow)
             {
-                eva.GetComponent<Movement>().jumpForce = 0;
-                eva.GetComponent<Movement>().speed = 0;
-                eva.GetComponent<Movement>().isdead = true;
+                eva.GetComponent<PlayerController>().jumpForce = 0;
+                eva.GetComponent<PlayerController>().speed = 0;
+                eva.GetComponent<PlayerController>().isdead = true;
 
                 if (timer >= timerInterval)
                 {

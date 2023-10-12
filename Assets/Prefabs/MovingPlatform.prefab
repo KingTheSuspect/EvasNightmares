@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6895160915068414800}
   - component: {fileID: 4440468952600910263}
   - component: {fileID: 308596685119689964}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +102,7 @@ MonoBehaviour:
   point1: {fileID: 6769301965679385861}
   point2: {fileID: 1952578463699590649}
   speed: 3
+  vertical: 0
 --- !u!50 &4440468952600910263
 Rigidbody2D:
   serializedVersion: 4
@@ -127,7 +128,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 6
 --- !u!61 &308596685119689964
 BoxCollider2D:
@@ -183,7 +184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1952578463699590649}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,9 +215,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2557198299549747497}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MovingPlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,7 +249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6769301965679385861}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

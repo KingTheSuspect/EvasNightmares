@@ -20,9 +20,9 @@ public class healtsystem : MonoBehaviour
     private void Start()
     {
 
-        slider = GameObject.Find("health").GetComponent<Slider>();
+        slider = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Slider>();
 
-        sliderFill = GameObject.Find("Fill").GetComponent<Image>();
+        sliderFill = GameObject.FindGameObjectWithTag("Fill").GetComponent<Image>();
 
     }
 
@@ -34,7 +34,7 @@ public class healtsystem : MonoBehaviour
         if(health <= 0)
         {
 
-            this.transform.position = GetComponent<Movement>().checkPoint;
+            this.transform.position = GetComponent<PlayerController>().checkPoint;
 
             health = 100;
 

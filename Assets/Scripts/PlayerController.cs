@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Movement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 
     private Rigidbody2D rb;

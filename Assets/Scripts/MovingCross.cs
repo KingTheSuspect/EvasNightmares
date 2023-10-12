@@ -47,7 +47,7 @@ public class MovingCross : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.tag == "Player" && !cross)
+        if (collision.gameObject.CompareTag("Player") && !cross)
             collision.transform.SetParent(this.gameObject.transform);
 
     }
@@ -55,7 +55,7 @@ public class MovingCross : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
 
-        if (collision.gameObject.tag == "Player" && !cross)
+        if (collision.gameObject.CompareTag("Player") && !cross)
             collision.transform.SetParent(null);
 
     }
