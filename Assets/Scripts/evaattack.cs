@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class evaattack : MonoBehaviour
 {
-    public Animator anim;
-    public Transform attackPoint;
-    public float attackRange;
-    public LayerMask enemyLayers;
+    [SerializeField] private Animator anim;
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private float attackRange;
+    [SerializeField] private LayerMask enemyLayers;
     float nextAttackTime;
-    public float attackRate;
+    [SerializeField] private float attackRate;
     public int baseDamage = 10;
 
 

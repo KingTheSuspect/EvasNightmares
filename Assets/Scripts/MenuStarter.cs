@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class MenuStarter : MonoBehaviour
 {
     bool didmenuwasstarted;
-    public Animator anims;
+    [SerializeField] private Animator anims;
     float time;
-    public GameObject blink;
+    [SerializeField] private GameObject blink;
     private void Update()
     {
         if(!didmenuwasstarted && Input.GetMouseButtonDown(0))
@@ -27,7 +27,6 @@ public class MenuStarter : MonoBehaviour
 
         if (time > 0.6f)
         {
-            GameObject.Find("ButtonManager").GetComponent<ButtonManager>().main.SetActive(true);
             Destroy(blink);
         }
 
