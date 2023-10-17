@@ -11,11 +11,11 @@ public class HealthSystem : MonoBehaviour
     [Range(0,100)]
     public float health;
 
-    public Slider slider;
-    public Image sliderFill;
+    [SerializeField] private Slider slider;
+    [SerializeField] private Image sliderFill;
 
-    private Color minColor = Color.green;
-    private Color maxColor = Color.red;
+    [SerializeField] private Color minColor = Color.green;
+    [SerializeField] private Color maxColor = Color.red;
 
     private void Start()
     {
