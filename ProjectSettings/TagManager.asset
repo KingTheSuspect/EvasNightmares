@@ -17,6 +17,7 @@ TagManager:
   - Crate
   - HealthBar
   - Fill
+  - torturerTargetPoint
   layers:
   - Default
   - TransparentFX
