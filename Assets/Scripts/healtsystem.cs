@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class healtsystem : MonoBehaviour
 {
 
-    [SerializeField] private float maxHealth = 100;
+    public float maxHealth = 100;
 
     [Range(0,100)]
-    [SerializeField]private float health;
+    public float health;
 
     [SerializeField] private Slider slider;
     [SerializeField] private Image sliderFill;
