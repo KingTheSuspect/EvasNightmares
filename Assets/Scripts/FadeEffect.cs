@@ -7,14 +7,16 @@ using UnityEngine.SceneManagement;
 public class FadeEffect : MonoBehaviour
 {
     [SerializeField] private Animator anims;
-
+    [SerializeField] private bool onesScene = true;
     [SerializeField] private float transitionTime = 1f;
 
     private void Update()
     {
         if (Input.GetMouseButtonUp(0))
         {
-            //LoadNextLevel();
+            if (onesScene)
+            {
+            }
         }
 
     }

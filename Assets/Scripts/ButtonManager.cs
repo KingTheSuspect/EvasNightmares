@@ -7,7 +7,6 @@ public class ButtonManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject settings;
-    [SerializeField] private GameObject credits;
     public void Start()
     {
 
@@ -36,14 +35,7 @@ public class ButtonManager : MonoBehaviour
         settings.SetActive(true);
 
     }
-    public void CreditsMenu()
-    {
-
-        hideAll();
-
-        credits.SetActive(true);
-
-    }
+   
     public void Quit()
     {
 
@@ -56,7 +48,6 @@ public class ButtonManager : MonoBehaviour
     {
 
         settings.SetActive(false);
-        credits.SetActive(false);
 
     }
 
