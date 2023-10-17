@@ -174,7 +174,7 @@ public class GolgeZanaatkar : MonoBehaviour
         if (distance <= attackDistance)
         {
 
-            GameObject.FindGameObjectWithTag("Player").GetComponent<healtsystem>().GetDamage(damage);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>().GetDamage(damage);
 
         }
 
@@ -183,7 +183,7 @@ public class GolgeZanaatkar : MonoBehaviour
         if (distance <= attackDistance)
         {
 
-            GameObject.FindGameObjectWithTag("Player").GetComponent<healtsystem>().GetDamage(damage);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>().GetDamage(damage);
 
         }
         
@@ -192,7 +192,7 @@ public class GolgeZanaatkar : MonoBehaviour
         if (distance <= attackDistance)
         {
 
-            GameObject.FindGameObjectWithTag("Player").GetComponent<healtsystem>().GetDamage(damage);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>().GetDamage(damage);
 
         }
 

@@ -175,7 +175,7 @@ public class Guardian : MonoBehaviour
         {
            
             attack = false;
-            GameObject.Find("eva").GetComponent<healtsystem>().GetDamage(damage);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>().GetDamage(damage);
             attackTimer = 0;
             moveSpeed = 2;
         }

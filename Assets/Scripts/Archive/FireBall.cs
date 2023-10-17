@@ -13,7 +13,7 @@ public class FireBall : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
 
-            GameObject.Find("eva").GetComponent<healtsystem>().GetDamage(damage);
+            collision.GetComponent<HealthSystem>().GetDamage(damage);
 
             Destroy(this.gameObject);
 

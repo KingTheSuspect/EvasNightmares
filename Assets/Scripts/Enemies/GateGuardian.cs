@@ -80,7 +80,7 @@ public class GateGuardian : MonoBehaviour
     void InflictChainDamageToPlayer()
     {
 
-        playerTransform.gameObject.GetComponent<healtsystem>().GetDamage(chainDamage);
+        playerTransform.gameObject.GetComponent<HealthSystem>().GetDamage(chainDamage);
 
         if(this.gameObject.GetComponent<EnemyHealthSystem>().health <= 100)
             this.gameObject.GetComponent<EnemyHealthSystem>().health += lifeSteal;
@@ -99,7 +99,7 @@ public class GateGuardian : MonoBehaviour
         if (distance <= 3f)
         {
 
-            playerTransform.gameObject.GetComponent<healtsystem>().GetDamage(axeDamage);
+            playerTransform.gameObject.GetComponent<HealthSystem>().GetDamage(axeDamage);
 
         }
 

@@ -178,7 +178,7 @@ public class AzapKurdu : MonoBehaviour
         if (distance <= attackDistance)
         {
 
-            GameObject.FindGameObjectWithTag("Player").GetComponent<healtsystem>().GetDamage(damage);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>().GetDamage(damage);
 
             this.gameObject.GetComponent<EnemyHealthSystem>().health += lifeSteal;
 

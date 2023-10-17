@@ -14,52 +14,52 @@ public class InventoryItem : MonoBehaviour
     public void useIt()
     {
 
-        if (item == 0 && GameObject.Find("InventoryManager").GetComponent<InventoryManager>().healthPotionCount > 0)
+        if (item == 0 && GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>().healthPotionCount > 0)
         {
 
-            if (GameObject.Find("eva").GetComponent<healtsystem>().health < 100)
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>().health < 100)
             {
 
-                GameObject.Find("eva").GetComponent<healtsystem>().health += health;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>().health += health;
 
-                GameObject.Find("InventoryManager").GetComponent<InventoryManager>().healthPotionCount -= 1;
+                GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>().healthPotionCount -= 1;
 
             }
 
         }
             
-        else if (item == 1 && GameObject.Find("InventoryManager").GetComponent<InventoryManager>().damagePotionCount > 0)
+        else if (item == 1 && GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>().damagePotionCount > 0)
         {
 
-            GameObject.Find("InventoryManager").GetComponent<InventoryManager>().damagePotionCount -= 1;
+            GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>().damagePotionCount -= 1;
 
         }
             
-        else if (item == 2 && GameObject.Find("InventoryManager").GetComponent<InventoryManager>().shadowPotionCount > 0)
+        else if (item == 2 && GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>().shadowPotionCount > 0)
         {
 
-            GameObject.Find("InventoryManager").GetComponent<InventoryManager>().shadowPotionCount -= 1;
+            GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>().shadowPotionCount -= 1;
 
         }
             
-        else if (item == 3 && GameObject.Find("InventoryManager").GetComponent<InventoryManager>().emotionBowlCount > 0)
+        else if (item == 3 && GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>().emotionBowlCount > 0)
         {
 
-            GameObject.Find("InventoryManager").GetComponent<InventoryManager>().emotionBowlCount -= 1;
+            GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>().emotionBowlCount -= 1;
 
         }
             
-        else if (item == 4 && GameObject.Find("InventoryManager").GetComponent<InventoryManager>().bogaSerbetiCount > 0)
+        else if (item == 4 && GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>().bogaSerbetiCount > 0)
         {
 
-            GameObject.Find("InventoryManager").GetComponent<InventoryManager>().bogaSerbetiCount -= 1;
+            GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>().bogaSerbetiCount -= 1;
 
         }
             
-        else if (item == 5 && GameObject.Find("InventoryManager").GetComponent<InventoryManager>().soulTransferCount > 0)
+        else if (item == 5 && GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>().soulTransferCount > 0)
         {
 
-            GameObject.Find("InventoryManager").GetComponent<InventoryManager>().soulTransferCount -= 1;
+            GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>().soulTransferCount -= 1;
 
         }
             

@@ -18,8 +18,8 @@ public class Torturer : MonoBehaviour
 
     void Start()
     {
-        playerTransform = GameObject.Find("eva").transform;
-        targetPosition = GameObject.Find("torturerTargetPoint").transform; 
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        targetPosition = GameObject.FindGameObjectWithTag("torturerTargetPoint").transform; 
     }
 
     void Update()
@@ -83,7 +83,7 @@ public class Torturer : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && attack == true)
         {
-            nowHealth = GameObject.Find("eva").GetComponent<healtsystem>().health;
+            nowHealth = collision.GetComponent<HealthSystem>().health;
 
             if (nowHealth > 80)
             {
@@ -123,13 +123,12 @@ public class Torturer : MonoBehaviour
             }
 
             playerTransform.position = new Vector2(targetPosition.position.x, targetPosition.position.y);
-            GameObject.Find("eva").GetComponent<healtsystem>().health -= realAttackDamage;
+            GameObject.Find("eva").GetComponent<HealthSystem>().health -= realAttackDamage;
             attack = false;
             time = 0;
         }
         if (collision.gameObject.tag == "Player")
         {
-            print("içerde");
             inside = true;
         }
 

@@ -58,7 +58,7 @@ public class LostSouls : MonoBehaviour
 
                 if (timer >= timerInterval)
                 {
-                    eva.GetComponent<healtsystem>().health--;
+                    eva.GetComponent<HealthSystem>().health--;
                     timer = 0f;
                 }
                 destroyTime = -99999;

@@ -78,7 +78,7 @@ public class Klonlar : MonoBehaviour
 
         GetComponent<Rigidbody2D>().gravityScale = 1;
 
-        GameObject.Find("eva").GetComponent<healtsystem>().GetDamage(damage);
+        GameObject.Find("eva").GetComponent<HealthSystem>().GetDamage(damage);
 
         this.gameObject.GetComponent<EnemyHealthSystem>().GetDamageFromEva(999);
 

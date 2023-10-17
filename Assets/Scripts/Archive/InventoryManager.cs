@@ -55,7 +55,7 @@ public class InventoryManager : MonoBehaviour
             if (selectedSlot == 0 && healthPotionCount > 0)
             {
 
-                eva.GetComponent<healtsystem>().health += (eva.GetComponent<healtsystem>().maxHealth / 100) * healthPercentage;
+                eva.GetComponent<HealthSystem>().health += (eva.GetComponent<HealthSystem>().maxHealth / 100) * healthPercentage;
 
                 healthPotionCount -= 1;
 
@@ -82,7 +82,7 @@ public class InventoryManager : MonoBehaviour
             else if (selectedSlot == 3 && emotionBowlCount > 0)
             {
 
-                eva.GetComponent<healtsystem>().health += (eva.GetComponent<healtsystem>().maxHealth / 100) * healthPercentageBowl;
+                eva.GetComponent<HealthSystem>().health += (eva.GetComponent<HealthSystem>().maxHealth / 100) * healthPercentageBowl;
 
                 emotionBowlCount -= 1;
 
