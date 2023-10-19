@@ -17,7 +17,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Start()
     {
-        target = GameObject.Find("eva").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
     private void LateUpdate()
     {

@@ -7,32 +7,32 @@ public class PlayerController : MonoBehaviour
 {
 
     private Rigidbody2D rb;
-    float horizontal;
+    private float horizontal;
     public float speed;
-    public float standardSpeed;
+    [SerializeField] private float standardSpeed;
     public float jumpForce;
-    public float wallJumpForce;
-    public bool IsJumping;
-    bool rtoate;
-    Vector3 scale;
-    public bool isGrounded = true;
-    public Animator anim;
+    [SerializeField] private float wallJumpForce;
+    [SerializeField] private bool IsJumping;
+    private bool rtoate;
+    private Vector3 scale;
+    [SerializeField] private bool isGrounded = true;
+    [SerializeField]private Animator anim;
     public bool isdead;
     public Vector2 checkPoint;
     //Transform whimsyPoint ,whimsy;
     public static bool hatModeForAnim;
-    public ParticleSystem particleSystemm;
+    [SerializeField] private ParticleSystem particleSystemm;
 
 
-    public Transform wall;
+    [SerializeField] private Transform wall;
 
-    public bool left = true;
-    public bool wallJumping = false;
+    [SerializeField] private bool left = true;
+    [SerializeField] private bool wallJumping = false;
 
-    public float jumpingTimer = 0;
-    public float jumpTime = 1;
-    public bool cantMove = false;
-    public bool cantJump = false;
+    [SerializeField] private float jumpingTimer = 0;
+    [SerializeField] private float jumpTime = 1;
+    [SerializeField] private bool cantMove = false;
+    [SerializeField] private bool cantJump = false;
 
     public bool invicible = false;
 
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (GameObject.Find("whimsy").GetComponent<whimsyfallow>().hat)
+        if (GameObject.FindGameObjectWithTag("Whimsy").GetComponent<whimsyfallow>().hat)
         {
             hatModeForAnim = true;
         }
@@ -77,13 +77,13 @@ public class PlayerController : MonoBehaviour
 
         anim.SetBool("HatModeAnim", hatModeForAnim);
 
-        if (GameObject.Find("whimsy").GetComponent<whimsyfallow>().hatmode && !isdead)
+        if (GameObject.FindGameObjectWithTag("Whimsy").GetComponent<whimsyfallow>().hatmode && !isdead)
         {
             jumpForce = 300;
             speed = 330;
-            if (!GameObject.Find("whimsy").GetComponent<whimsyfallow>().hat)
+            if (!GameObject.FindGameObjectWithTag("Whimsy").GetComponent<whimsyfallow>().hat)
             {
-                GameObject.Find("whimsy").transform.localScale = new Vector2(this.transform.localScale.x, this.transform.localScale.y);
+                GameObject.FindGameObjectWithTag("Whimsy").transform.localScale = new Vector2(this.transform.localScale.x, this.transform.localScale.y);
 
             }
 

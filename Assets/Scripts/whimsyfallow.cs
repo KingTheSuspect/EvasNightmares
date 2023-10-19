@@ -25,9 +25,6 @@ public class whimsyfallow : MonoBehaviour
     private void Start()
     {
         Instance = this;
-
-        hedefNesne = GameObject.Find("whimsyfallow").transform;
-
         hatPosition = GameObject.Find("hatposition").transform;
 
     }
@@ -36,7 +33,7 @@ public class whimsyfallow : MonoBehaviour
     void Update()
     {
 
-        float distance = Vector2.Distance(GameObject.Find("eva").transform.position, this.transform.position);
+        float distance = Vector2.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, this.transform.position);
 
         if (distance < 0.5 && hatmode) 
         {
