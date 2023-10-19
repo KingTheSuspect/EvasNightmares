@@ -672,7 +672,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 1355654796}
-  credits: {fileID: 1837196074}
 --- !u!4 &136472432
 Transform:
   m_ObjectHideFlags: 0
@@ -702,6 +701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anims: {fileID: 774322950}
   transitionTime: 1
+  stageInt: 0
 --- !u!1 &167613161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,7 +1291,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 537502352}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 136472433}
+        m_TargetAssemblyTypeName: FadeEffect, Assembly-CSharp
+        m_MethodName: Menus
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &537502352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2404,7 +2416,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 821574912}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 136472433}
+        m_TargetAssemblyTypeName: FadeEffect, Assembly-CSharp
+        m_MethodName: Menus
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &821574912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2917,7 +2941,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 998942371}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 136472433}
+        m_TargetAssemblyTypeName: FadeEffect, Assembly-CSharp
+        m_MethodName: Menus
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &998942371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4643,7 +4679,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1588147175}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 136472433}
+        m_TargetAssemblyTypeName: FadeEffect, Assembly-CSharp
+        m_MethodName: Menus
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1588147175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4763,7 +4811,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1622231215}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 136472433}
+        m_TargetAssemblyTypeName: FadeEffect, Assembly-CSharp
+        m_MethodName: Menus
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1622231215
 MonoBehaviour:
   m_ObjectHideFlags: 0

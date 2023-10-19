@@ -7,18 +7,18 @@ using UnityEngine.SceneManagement;
 public class FadeEffect : MonoBehaviour
 {
     [SerializeField] private Animator anims;
-    [SerializeField] private bool onesScene = true;
     [SerializeField] private float transitionTime = 1f;
+    [SerializeField] private int stageInt;
+
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0))
-        {
-            if (onesScene)
-            {
-            }
-        }
 
+    }
+
+    public void Menus(int episodeId)
+    {
+        StartCoroutine(LoadLevels(episodeId));
     }
 
     public void LoadNextLevel()
@@ -32,6 +32,15 @@ public class FadeEffect : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(levelindex);
+
+    }
+
+    IEnumerator LoadLevels(int episodeId)
+    {
+        anims.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(episodeId);
 
     }
 }
