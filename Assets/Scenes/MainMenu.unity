@@ -652,6 +652,7 @@ GameObject:
   - component: {fileID: 136472432}
   - component: {fileID: 136472431}
   - component: {fileID: 136472433}
+  - component: {fileID: 136472434}
   m_Layer: 0
   m_Name: ButtonManager
   m_TagString: Untagged
@@ -702,6 +703,25 @@ MonoBehaviour:
   anims: {fileID: 774322950}
   transitionTime: 1
   stageInt: 0
+--- !u!114 &136472434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136472430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8e4280ed937414b8d5c8f4f5d5e0c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageInt: 0
+  stage1: {fileID: 869920630}
+  stage2: {fileID: 1981075878}
+  stage3: {fileID: 729367514}
+  stage4: {fileID: 1447916418}
+  stage5: {fileID: 2035584641}
+  stage6: {fileID: 1870881213}
 --- !u!1 &167613161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,7 +1563,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 593305903}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 136472434}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: nextButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &593305903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3325,7 +3357,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1138114469}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 136472434}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: prevousButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1138114469
 MonoBehaviour:
   m_ObjectHideFlags: 0
