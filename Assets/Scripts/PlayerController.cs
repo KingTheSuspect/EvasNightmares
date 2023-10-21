@@ -6,32 +6,40 @@ using System.Linq;
 public class PlayerController : MonoBehaviour
 {
 
-    private Rigidbody2D rb;
+    
     private float horizontal;
     public float speed = 200;
     public float jumpForce = 200;
     private float firstspeed, firstjump;
-    [SerializeField] private float wevaspeed = 250, wevajumpForce = 250;
-    [SerializeField] private float wallJumpForce;
-    [SerializeField] private bool IsJumping;
+    public static bool hatModeForAnim;
     private bool rtoate;
     private Vector3 scale;
     private bool isGrounded = true;
-    private Animator anim;
     public bool isdead;
-    [HideInInspector]public Vector2 checkPoint;
-    public static bool hatModeForAnim;
+
+    //Wall Slide
+    private bool isWallSliding;
+    private float wallSlidingSpeed = 2f;
+    [SerializeField]private Transform wallCheckPoint;
+    [SerializeField]private LayerMask wallLayer;
+
+    //Wall Jump
+    private bool isWallJumping;
+    private float wallJumpingDirection;
+    private float wallJumpingTime = 0.2f;
+    private float wallJumpingCounter;
+    private float wallJumpingDuration = 0.4f;
+    [SerializeField]private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+
+    [SerializeField] private float wevaspeed = 250, wevajumpForce = 250;
+    [SerializeField] private float wallJumpForce;
+    [SerializeField] private bool IsJumping;
+    [HideInInspector] public bool invicible = false;
+    [HideInInspector] public Vector2 checkPoint;
+
+    private Animator anim;
     private ParticleSystem particleSystemm;
-    private Transform wall;
-    private bool left = true;
-    private bool wallJumping = false;
-    private float jumpingTimer = 0;
-    private float jumpTime = 1;
-    private bool cantMove = false;
-    private bool cantJump = false;
-    [HideInInspector]public bool invicible = false;
-
-
+    private Rigidbody2D rb;
 
     void Start()
     {
@@ -71,6 +79,9 @@ public class PlayerController : MonoBehaviour
 
         anim.SetBool("HatModeAnim", hatModeForAnim);
 
+        WallSlide();
+        WallJump();
+
         
         
         
@@ -94,73 +105,10 @@ public class PlayerController : MonoBehaviour
         }
         
 
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && (!IsJumping || wallJumping) && !cantJump)
+        if (Input.GetButtonDown("Jump"))
         {
 
-            if (wallJumping)
-            {
-
-                var walls = GameObject.FindGameObjectsWithTag("wall");
-
-                if (walls.Length > 0 && IsJumping)
-                {
-                    var closestWall = walls.OrderBy(wall => Vector3.Distance(this.transform.position, wall.transform.position)).ToList()[0];
-
-                    wall = closestWall.transform;
-
-                    if (this.transform.position.x < closestWall.transform.position.x)
-                    {
-
-                        left = true;
-
-                    }
-
-                    else if (this.transform.position.x > closestWall.transform.position.x)
-                    {
-
-                        left = false;
-
-                    }
-
-                }
-
-                if (left)
-                {
-
-                    rb.velocity = new Vector2(-wallJumpForce, wallJumpForce);
-
-                    jumpingTimer = 0;
-
-                    cantMove = true;
-
-                    wallJumping = false;
-
-                    IsJumping = true;
-
-                    cantJump = true;
-
-                }
-
-                else if (!left)
-                {
-
-                    rb.velocity = new Vector2(wallJumpForce, wallJumpForce);
-
-                    jumpingTimer = 0;
-
-                    cantMove = true;
-
-                    wallJumping = false;
-
-                    IsJumping = true;
-
-                    cantJump = true;
-
-                }
-
-            }
-
-            else if (!IsJumping)
+            if (!IsJumping)
             {
 
                 rb.velocity = Vector2.zero;
@@ -185,18 +133,6 @@ public class PlayerController : MonoBehaviour
             whimsu.isRandomMoving = true;
         }
 
-        if (jumpingTimer >= jumpTime)
-        {
-
-            cantMove = false;
-
-            cantJump = false;
-
-        }
-            
-
-        jumpingTimer += Time.deltaTime;
-
     }
 
     private void FixedUpdate()
@@ -204,14 +140,14 @@ public class PlayerController : MonoBehaviour
 
         anim.SetFloat("speed", Mathf.Abs(horizontal));
 
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (!cantMove)
+        if (!isWallJumping)
         {
-
-            rb.velocity = new Vector2(horizontal * Time.deltaTime * speed, rb.velocity.y);
-
+            horizontal = Input.GetAxisRaw("Horizontal");
         }
+        
+
+        rb.velocity = new Vector2(horizontal * Time.deltaTime * speed, rb.velocity.y);
+
 
         if (horizontal < 0 && rtoate == false)
         {
@@ -235,7 +171,62 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void rotate()
+    private void WallJump()
+    {
+        if (isWallSliding)
+        {
+            isWallJumping = false;
+            wallJumpingDirection = -transform.localScale.x;
+            wallJumpingCounter = wallJumpingTime;
+
+            CancelInvoke(nameof(StopWallJumping));
+        }
+        else
+        {
+            wallJumpingCounter -= Time.deltaTime;
+        }
+
+        if (Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
+        {
+            isWallJumping = true;
+            rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            wallJumpingCounter = 0f;
+
+            if (transform.localScale.x != wallJumpingDirection)
+            {
+                rtoate = !rtoate;
+                Vector3 localScale = transform.localScale;
+                localScale.x *= -1f;
+                transform.localScale = localScale;
+            }
+
+            Invoke(nameof(StopWallJumping), wallJumpingDuration);
+        }
+    } 
+    private void StopWallJumping()
+    {
+        isWallJumping = false;
+    }
+
+    private bool isWalled()
+    {
+        return Physics2D.OverlapCircle(wallCheckPoint.position, 0.2f, wallLayer);
+    }
+
+    private void WallSlide()
+    {
+        if (isWalled() && !isGrounded && horizontal == 0f)
+        {
+            isWallSliding = true;
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, float.MaxValue));
+        }
+        else
+        {
+            isWallSliding = false;
+        }
+    }
+
+    private void rotate()
     {
         rtoate = !rtoate;
         scale = gameObject.transform.localScale;
@@ -253,24 +244,8 @@ public class PlayerController : MonoBehaviour
 
             isGrounded = true;
 
-            cantMove = false;
-
-            wallJumping = false;
-
-            cantJump = false;
-
         }
 
-        if (collision.transform.CompareTag("wall") && !isGrounded)
-        {
-
-            wallJumping = true;
-
-            cantMove = false;
-
-            cantJump = false;
-
-        }
 
     }
 
@@ -286,34 +261,15 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (collision.transform.CompareTag("wall"))
-        {
-
-            StartCoroutine(WallExit());
-
-            isGrounded = false;
-
-        }
 
     }
 
     private IEnumerator GroundExit() {
-
-            yield return new WaitForSeconds(0.1f);
-
-            if (!isGrounded)
-                IsJumping = true;
+        yield return new WaitForSeconds(0.1f);
+        if (!isGrounded)
+           IsJumping = true;
 
         }
 
-    private IEnumerator WallExit()
-    {
-
-        yield return new WaitForSeconds(0.1f);
-
-        if (!wallJumping)
-            cantJump = true;
-
-    }
 
 }

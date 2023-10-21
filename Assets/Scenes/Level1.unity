@@ -9143,7 +9143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4358360784715107754}
   m_Layer: 0
-  m_Name: hitpoint
+  m_Name: Wallpoint
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -9158,7 +9158,7 @@ Transform:
   m_GameObject: {fileID: 4358360784715107753}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.266, y: 0.036, z: 0}
+  m_LocalPosition: {x: 0.117, y: -0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9177,7 +9177,6 @@ GameObject:
   - component: {fileID: 4358360785592518124}
   - component: {fileID: 4358360785592518121}
   - component: {fileID: 4358360785592518127}
-  - component: {fileID: 4358360785592518123}
   - component: {fileID: 9209701472036194700}
   m_Layer: 0
   m_Name: Eva
@@ -9213,26 +9212,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &4358360785592518123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4358360785592518115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c757e5d1f582ec645ba81d31fef18508, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 4358360785592518124}
-  attackPoint: {fileID: 4358360784715107754}
-  attackRange: 0.5
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  attackRate: 0
-  baseDamage: 0
 --- !u!95 &4358360785592518124
 Animator:
   serializedVersion: 5
@@ -9338,13 +9317,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 225
   jumpForce: 250
+  isdead: 0
+  wallCheckPoint: {fileID: 4358360784715107754}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  wallJumpingPower: {x: 8, y: 5}
   wevaspeed: 275
   wevajumpForce: 300
   wallJumpForce: 4.5
   IsJumping: 0
-  isdead: 0
-  checkPoint: {x: 0, y: 0}
   invicible: 0
+  checkPoint: {x: 0, y: 0}
 --- !u!114 &4512640726936616437
 MonoBehaviour:
   m_ObjectHideFlags: 0
