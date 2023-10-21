@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 1301931000}
   - component: {fileID: 1301931001}
   m_Layer: 0
-  m_Name: dust
+  m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7514,12 +7514,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 4358360785592518126}
-  offset: {x: 1, y: 3.5, z: -10}
+  offset: {x: 1, y: 2.25, z: -10}
   smoothTime: 0.3
   cam: {fileID: 744831891759555566}
   isFollowingCharachter: 1
   manuelOffset: {x: 13, y: 14, z: -10}
-  isFollowingOffset: {x: 1, y: 3.5, z: -10}
+  isFollowingOffset: {x: 1, y: 2.25, z: -10}
   targetSizeisFollowing: 5
   targetSize: 20
   zoomSpeed: 5
@@ -9210,8 +9210,8 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &4358360785592518123
 MonoBehaviour:
@@ -9336,23 +9336,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be8c39cf8e4d0e44bb3a0f8e3c6452a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
-  standardSpeed: 0
+  speed: 225
   jumpForce: 250
+  wevaspeed: 275
+  wevajumpForce: 300
   wallJumpForce: 4.5
   IsJumping: 0
-  isGrounded: 1
-  anim: {fileID: 4358360785592518124}
   isdead: 0
   checkPoint: {x: 0, y: 0}
-  particleSystemm: {fileID: 0}
-  wall: {fileID: 0}
-  left: 1
-  wallJumping: 0
-  jumpingTimer: 0
-  jumpTime: 1
-  cantMove: 0
-  cantJump: 0
   invicible: 0
 --- !u!114 &4512640726936616437
 MonoBehaviour:

@@ -8,44 +8,38 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private float horizontal;
-    public float speed;
-    [SerializeField] private float standardSpeed;
-    public float jumpForce;
+    public float speed = 200;
+    public float jumpForce = 200;
+    private float firstspeed, firstjump;
+    [SerializeField] private float wevaspeed = 250, wevajumpForce = 250;
     [SerializeField] private float wallJumpForce;
     [SerializeField] private bool IsJumping;
     private bool rtoate;
     private Vector3 scale;
-    [SerializeField] private bool isGrounded = true;
-    [SerializeField]private Animator anim;
+    private bool isGrounded = true;
+    private Animator anim;
     public bool isdead;
-    public Vector2 checkPoint;
-    //Transform whimsyPoint ,whimsy;
+    [HideInInspector]public Vector2 checkPoint;
     public static bool hatModeForAnim;
-    [SerializeField] private ParticleSystem particleSystemm;
-
-
-    [SerializeField] private Transform wall;
-
-    [SerializeField] private bool left = true;
-    [SerializeField] private bool wallJumping = false;
-
-    [SerializeField] private float jumpingTimer = 0;
-    [SerializeField] private float jumpTime = 1;
-    [SerializeField] private bool cantMove = false;
-    [SerializeField] private bool cantJump = false;
-
-    public bool invicible = false;
+    private ParticleSystem particleSystemm;
+    private Transform wall;
+    private bool left = true;
+    private bool wallJumping = false;
+    private float jumpingTimer = 0;
+    private float jumpTime = 1;
+    private bool cantMove = false;
+    private bool cantJump = false;
+    [HideInInspector]public bool invicible = false;
 
 
 
     void Start()
     {
-        particleSystemm = GameObject.Find("dust").GetComponent<ParticleSystem>();
+        particleSystemm = GetComponentInChildren<ParticleSystem>();
         rb = GetComponent<Rigidbody2D>();
-        //whimsyPoint = GameObject.Find("hatposition").transform;
-        //whimsy = GameObject.Find("whimsy").transform;
-
-        standardSpeed = speed;
+        anim = GetComponent<Animator>();
+        firstjump = jumpForce;
+        firstspeed = speed;
 
     }
 
@@ -77,25 +71,28 @@ public class PlayerController : MonoBehaviour
 
         anim.SetBool("HatModeAnim", hatModeForAnim);
 
-        if (GameObject.FindGameObjectWithTag("Whimsy").GetComponent<whimsyfallow>().hatmode && !isdead)
+        
+        
+        
+
+        if (!isdead)
         {
-            jumpForce = 300;
-            speed = 330;
-            if (!GameObject.FindGameObjectWithTag("Whimsy").GetComponent<whimsyfallow>().hat)
+            if (GameObject.FindGameObjectWithTag("Whimsy").GetComponent<whimsyfallow>().hatmode)
             {
-                GameObject.FindGameObjectWithTag("Whimsy").transform.localScale = new Vector2(this.transform.localScale.x, this.transform.localScale.y);
-
+                jumpForce = wevajumpForce;
+                speed = wevaspeed;
+                if (!GameObject.FindGameObjectWithTag("Whimsy").GetComponent<whimsyfallow>().hat)
+                {
+                    GameObject.FindGameObjectWithTag("Whimsy").transform.localScale = new Vector2(this.transform.localScale.x, this.transform.localScale.y);
+                }
             }
-
-
-
+            else
+            {
+                jumpForce = firstjump;
+                speed = firstspeed;
+            }
         }
-
-        else if (!isdead)
-        {
-            jumpForce = 250;
-            speed = 250;
-        }
+        
 
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && (!IsJumping || wallJumping) && !cantJump)
         {
