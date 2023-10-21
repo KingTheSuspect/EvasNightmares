@@ -13,9 +13,10 @@ public class PlayerController : MonoBehaviour
     private float firstspeed, firstjump;
     public static bool hatModeForAnim;
     private bool rtoate;
+    private bool IsJumping;
     private Vector3 scale;
     private bool isGrounded = true;
-    public bool isdead;
+    [HideInInspector]public bool isdead;
 
     //Wall Slide
     private bool isWallSliding;
@@ -32,8 +33,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private Vector2 wallJumpingPower = new Vector2(8f, 16f);
 
     [SerializeField] private float wevaspeed = 250, wevajumpForce = 250;
-    [SerializeField] private float wallJumpForce;
-    [SerializeField] private bool IsJumping;
     [HideInInspector] public bool invicible = false;
     [HideInInspector] public Vector2 checkPoint;
 
@@ -82,9 +81,10 @@ public class PlayerController : MonoBehaviour
         WallSlide();
         WallJump();
 
-        
-        
-        
+        if (!isWallJumping)
+        {
+            Flip();
+        }
 
         if (!isdead)
         {
@@ -139,15 +139,13 @@ public class PlayerController : MonoBehaviour
     {
 
         anim.SetFloat("speed", Mathf.Abs(horizontal));
+        horizontal = Input.GetAxisRaw("Horizontal");
 
         if (!isWallJumping)
         {
-            horizontal = Input.GetAxisRaw("Horizontal");
+            rb.velocity = new Vector2(horizontal * Time.deltaTime * speed, rb.velocity.y);
         }
         
-
-        rb.velocity = new Vector2(horizontal * Time.deltaTime * speed, rb.velocity.y);
-
 
         if (horizontal < 0 && rtoate == false)
         {
@@ -155,14 +153,14 @@ public class PlayerController : MonoBehaviour
             if (GameObject.Find("Camera").GetComponent<CameraFollow>().isFollowingCharachter)
                 GameObject.Find("Camera").GetComponent<CameraFollow>().isFollowingOffset.x = -1;
 
-            rotate();
+            Flip();
 
         }
 
         else if (horizontal > 0 && rtoate == true)
         {
 
-            rotate();
+            Flip();
 
             if (GameObject.Find("Camera").GetComponent<CameraFollow>().isFollowingCharachter)
                 GameObject.Find("Camera").GetComponent<CameraFollow>().isFollowingOffset.x = 1;
@@ -173,6 +171,10 @@ public class PlayerController : MonoBehaviour
 
     private void WallJump()
     {
+        if (Input.GetAxis("Horizontal") == 0)
+        {
+            return;
+        }
         if (isWallSliding)
         {
             isWallJumping = false;
@@ -226,12 +228,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void rotate()
+    private void Flip()
     {
-        rtoate = !rtoate;
-        scale = gameObject.transform.localScale;
-        scale.x = scale.x * -1;
-        gameObject.transform.localScale = scale;
+        if (!rtoate && horizontal < 0f || rtoate && horizontal > 0f)
+        {
+            rtoate = !rtoate;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
+        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
