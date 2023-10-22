@@ -30,9 +30,9 @@ public class MenuManager : MonoBehaviour
             stageInt = 1;
         }
 
-        if (stageInt > 6)
+        if (stageInt > 3)
         {
-            stageInt = 6;
+            stageInt = 3;
         }
 
         if (stageInt == 1)
