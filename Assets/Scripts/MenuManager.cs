@@ -1,14 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private int stageInt;
-    [SerializeField] private GameObject stage1, stage2, stage3;
+    [SerializeField] private RectTransform recTransform;
+    [SerializeField] private float xOffset , xOffset1, xOffset2, xOffset3;
+    [SerializeField] private float speed;
+
+
+
+    private Vector3 targetPosition;
+   
 
     private void Update()
     {
+
+        targetPosition = new Vector3(xOffset, recTransform.position.y, recTransform.position.z);
+        recTransform.position = Vector3.Lerp(recTransform.position, targetPosition, speed * Time.deltaTime);
+
+
+
+
         if (stageInt < 1)
         {
             stageInt = 1;
@@ -21,20 +37,19 @@ public class MenuManager : MonoBehaviour
 
         if (stageInt == 1)
         {
-            hideAll();
-            stage1.SetActive(true);
+            xOffset = xOffset1;
         }
 
         else if (stageInt == 2)
         {
-            hideAll();
-            stage2.SetActive(true);
+            xOffset = xOffset2;
+
         }
 
         else if (stageInt == 3)
         {
-            hideAll();
-            stage3.SetActive(true);
+            xOffset = xOffset3;
+
         }
 
 
@@ -53,9 +68,6 @@ public class MenuManager : MonoBehaviour
 
     void hideAll()
     {
-        stage1.SetActive(false);
-        stage2.SetActive(false);
-        stage3.SetActive(false);
-
+   
     }
 }
