@@ -188,6 +188,7 @@ public class PlayerController : MonoBehaviour
             wallJumpingCounter -= Time.deltaTime;
         }
 
+
         if (Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
         {
             isWallJumping = true;
