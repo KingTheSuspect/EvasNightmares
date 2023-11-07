@@ -10,6 +10,11 @@ public class FadeEffect : MonoBehaviour
     [SerializeField] private float transitionTime = 1f;
     [SerializeField] private int stageInt;
 
+    private void Start()
+    {
+        Time.timeScale = 1;
+
+    }
 
     private void Update()
     {
@@ -42,5 +47,16 @@ public class FadeEffect : MonoBehaviour
 
         SceneManager.LoadScene(episodeId);
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            print("deðdi");
+            Time.timeScale = 0;
+
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        }
     }
 }

@@ -18,6 +18,7 @@ TagManager:
   - Fill
   - torturerTargetPoint
   - Whimsy
+  - Portal
   layers:
   - Default
   - TransparentFX
